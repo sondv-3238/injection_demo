@@ -10,9 +10,9 @@
   mysqli_query($db, "CREATE DATABASE IF NOT EXISTS $database;");
   mysqli_close($db);
   // coffee table
-  $drop_sql = 'DROP TABLE IF EXISTS coffee;';
+  $drop_sql = 'DROP TABLE IF EXISTS staff;';
   $create_sql = file_get_contents('../sql/create_db.sql');
-  $data_sql = file_get_contents('../sql/coffee_data.sql');
+  $data_sql = file_get_contents('../sql/staff_data.sql');
 
 
 

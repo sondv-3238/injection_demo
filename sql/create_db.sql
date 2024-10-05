@@ -1,9 +1,9 @@
-CREATE TABLE coffee (
+CREATE TABLE staff (
   id SERIAL PRIMARY KEY,
-  blend_name char(64),
-  origin char(64),
-  variety char(64),
-  notes char(64),
-  intensifier char(64),
-  price float
+  fullname char(64),
+  age char(64),
+  position char(64),
+  level char(64),
+  note char(64),
+  salary float
 );

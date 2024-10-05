@@ -1,5 +1,5 @@
 <?php
-function show_table($blend_name)
+function show_table($fullname)
 {
   if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -11,25 +11,25 @@ function show_table($blend_name)
   <table class="table border">
     <tr>
       <th>ID</th>
-      <th>BlendName</th>
-      <th>Origin</th>
-      <th>Variety</th>
+      <th>FullName</th>
+      <th>Age</th>
+      <th>Position</th>
+      <th>Level</th>
       <th>Notes</th>
-      <th>Intensifier</th>
-      <th>Price</th>
+      <th>Salary</th>
       <?php
-      if ($logged_in) {
-        echo ("<th>Shop</th>");
-      }
+      // if ($logged_in) {
+      //   echo ("<th>Shop</th>");
+      // }
       if ($admin) {
-        echo ("<th>Löschen</th>");
+        echo ("<th>Layoff</th>");
       }
       ?>
     </tr>
     <?php
     require_once('connectdb.php');
     // vulnerability to sql injection
-    $query = "SELECT * FROM coffee WHERE blend_name LIKE '%$blend_name%';";
+    $query = "SELECT * FROM staff WHERE fullname LIKE '%$fullname%';";
     ?>
     <br>
     <div class="card">
@@ -42,7 +42,7 @@ function show_table($blend_name)
       </div>
     </div>
     <br>
-    <h3>Kaffee</h3>
+    <h3>Staffs</h3>
     <?php
     // mysqli_multi_query is required to demonstrate all possible
     // sql-injection variants. With mysqli_query only the first
@@ -58,25 +58,25 @@ function show_table($blend_name)
       echo ('ERROR: ' . $e);
     }
     if ($result) {
-      while ($coffee = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+      while ($staff = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         echo ('<tr>');
-        foreach ($coffee as $attr) {
+        foreach ($staff as $attr) {
           echo ('<td>' . $attr . '</td>');
         }
-        if ($logged_in) {
-          $id = $coffee['id'];
-          echo ("
-            <td>
-              <form action=\"lib/add_to_cart.php\" method=\"post\">
-                <button name=\"item\" value=\"$id\" type=\"submit\" class=\"btn px-1 py-0\">
-                  🛒
-                </button>
-              </form>
-            </td>
-          ");
-        }
+        // if ($logged_in) {
+        //   $id = $staff['id'];
+        //   echo ("
+        //     <td>
+        //       <form action=\"lib/add_to_cart.php\" method=\"post\">
+        //         <button name=\"item\" value=\"$id\" type=\"submit\" class=\"btn px-1 py-0\">
+        //           🛒
+        //         </button>
+        //       </form>
+        //     </td>
+        //   ");
+        // }
         if ($admin) {
-          $id = $coffee['id'];
+          $id = $staff['id'];
           echo ("
             <th>
               <form class=\"form-inline mr-3\" action=\"lib/delete_item.php\" method=\"post\">

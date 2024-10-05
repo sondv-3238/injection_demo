@@ -55,11 +55,11 @@
   <?php
 }
 ?>
-  <h1>Onlineshop Coffee</h1>
+  <h1>Staff List</h1>
   <form action="index.php" method="get">
     <div class="form-group">
-      <label for="blendFilter">Blend Name</label>
-      <input type="text" class="form-control" id="blendFilter" name="blend" placeholder="Filter Blend Names" value=<?php echo ('"' . $filter . '"'); ?>>
+      <label for="blendFilter">Staff Name</label>
+      <input type="text" class="form-control" id="blendFilter" name="blend" placeholder="Filter Staff Names" value=<?php echo ('"' . $filter . '"'); ?>>
     </div>
     <button type="submit" class="btn btn-primary">Filter</button>
   </form>
