@@ -11,7 +11,7 @@ function connectdb($database = NULL)
     $database = $database ? $database : substr($db_props['path'], 1); // remove the slash from '/path'
   } else {
     $database = "inject_demodb";
-    $host = getenv('SQL_INJECTION_DB_HOST') ? getenv('SQL_INJECTION_DB_HOST') : 'localhost';
+    $host = getenv('SQL_INJECTION_DB_HOST') ? getenv('SQL_INJECTION_DB_HOST') : 'db';
     $port = getenv('SQL_INJECTION_DB_PORT') ? getenv('SQL_INJECTION_DB_PORT') : 3306;
     $username = getenv('SQL_INJECTION_DB_USERNAME') ? getenv('SQL_INJECTION_DB_USERNAME') : 'sql_injection';
     $password = getenv('SQL_INJECTION_DB_PASSWORD') ? getenv('SQL_INJECTION_DB_PASSWORD') : 'foobar';

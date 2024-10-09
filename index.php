@@ -1,3 +1,8 @@
+<?php
+  session_start();
+  require_once('lib/helpers.php');
+  $filter = array_key_exists('blend', $_GET) ? $_GET['blend'] : '';
+?>
 <!DOCTYPE html>
 <html>
 
@@ -12,11 +17,6 @@
 </head>
 
 <body>
-  <?php
-  session_start();
-  require_once('lib/helpers.php');
-  $filter = array_key_exists('blend', $_GET) ? $_GET['blend'] : '';
-  ?>
   <nav class="navbar navbar-dark bg-dark justify-content-end">
     <?php
     if (isset($_SESSION['cart_items'])) {
